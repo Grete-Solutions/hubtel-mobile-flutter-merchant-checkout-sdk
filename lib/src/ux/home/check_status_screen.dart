@@ -144,11 +144,13 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
     Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
+        if (mounted) {
         if (timeLeft > 0) setState(() => timeLeft--);
         if (timeLeft == 0) {
           timer.cancel();
           showPendingTimer = false;
           setState(() => timeLeft = 5);
+        }
         }
       },
     );
