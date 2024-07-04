@@ -86,9 +86,13 @@ class ExpansionTileController {
   ///  * [isExpanded] to check whether the tile is expanded.
   ///  * [ExpansionTile.controller] to create an ExpansionTile with a controller.
   void collapse() {
+    try {
     assert(_state != null);
     if (isExpanded) {
       _state!._toggleExpansion();
+    }
+    } catch (e) {
+       debugPrint(e.toString());
     }
   }
 
