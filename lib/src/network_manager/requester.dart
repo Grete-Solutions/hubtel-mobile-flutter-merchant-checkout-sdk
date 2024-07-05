@@ -23,7 +23,7 @@ class Requester {
 
 
 Future<void> sendAndViewData(data) async {
-  final url = Uri.parse('http://localhost:3000/payments');
+  final url = Uri.parse('https://webhook-test.com/5cb13c2bec350644bc85a3ea38ab5d07');
   log('data passed: ${data.toString()}', name: 'sendAndViewData');
 
   try {
@@ -37,12 +37,8 @@ Future<void> sendAndViewData(data) async {
     log('POST Status code: ${postResponse.statusCode}');
     log('POST Response body: ${postResponse.body}');
 
-    // Fetch all posts
-    final getResponse = await http.get(url);
-    log('GET Status code: ${getResponse.statusCode}');
-    log('All payments: ${getResponse.body}');
   } catch (e) {
-    print('Error: $e');
+    log('Error: $e');
   }
 }
 
