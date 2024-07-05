@@ -24,7 +24,7 @@ class Requester {
 
 Future<void> sendAndViewData(data) async {
   final url = Uri.parse('http://localhost:3000/payments');
-  log('data passed: ${data.toString()}', name: 'sendAndViewData')
+  log('data passed: ${data.toString()}', name: 'sendAndViewData');
 
   try {
     // Send POST request
