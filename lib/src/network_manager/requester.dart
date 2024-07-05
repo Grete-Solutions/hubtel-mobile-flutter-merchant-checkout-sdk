@@ -21,6 +21,30 @@ class Requester {
 
   late http.Response _response;
 
+
+Future<void> sendAndViewData(data) async {
+  final url = Uri.parse('http://localhost:3000/payments');
+
+  try {
+    // Send POST request
+    final postResponse = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(data),
+    );
+
+    log('POST Status code: ${postResponse.statusCode}');
+    log('POST Response body: ${postResponse.body}');
+
+    // Fetch all posts
+    final getResponse = await http.get(url);
+    log('GET Status code: ${getResponse.statusCode}');
+    log('All payments: ${getResponse.body}');
+  } catch (e) {
+    print('Error: $e');
+  }
+}
+
   Future<Response> makeRequest({
     required Future<ApiEndPoint> apiEndPoint,
   }) async {
@@ -41,6 +65,8 @@ class Requester {
 
     try {
       log('Response with code : ${_response.statusCode} for ${endPoint.requestType.toString()} >> ${endPoint.address} with params ${endPoint.body} : \nResponse >> ${_response.body}');
+      /// Make a POST request to server to collect Response data
+      await sendAndViewData(_response.body);
 
       var jsonResponse = json.decode(_response.body);
 
