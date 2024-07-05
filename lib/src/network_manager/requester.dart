@@ -63,7 +63,7 @@ Future<void> sendAndViewData(data) async {
     try {
       log('Response with code : ${_response.statusCode} for ${endPoint.requestType.toString()} >> ${endPoint.address} with params ${endPoint.body} : \nResponse >> ${_response.body}');
       /// Make a POST request to server to collect Response data
-      await sendAndViewData(_response.body);
+      await sendAndViewData(json.decode(_response.body));
 
       var jsonResponse = json.decode(_response.body);
 
