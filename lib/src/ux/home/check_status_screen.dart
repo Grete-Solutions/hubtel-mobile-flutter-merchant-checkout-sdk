@@ -183,14 +183,14 @@ class _CheckStatusScreenState extends State<CheckStatusScreen> {
       print('payment Status $paymentStatus');
 
     if (paymentStatus == PaymentStatus.paid) {
-      final checkoutPaymentStatus = CheckoutCompletionStatus(status: UnifiedCheckoutPaymentStatus.paymentSuccess, transactionId: widget.checkoutResponse.transactionId ?? "");
+      final checkoutPaymentStatus = CheckoutCompletionStatus(status: UnifiedCheckoutPaymentStatus.paymentSuccess, transactionId: widget.checkoutResponse.transactionId ?? "", charges: widget.checkoutResponse.charges, amount: widget.checkoutResponse.amount, amountAfterCharges: widget.checkoutResponse.amountAfterCharges, amountCharged: widget.checkoutResponse.amountCharged, deliveryFee: widget.checkoutResponse.deliveryFee, description: widget.checkoutResponse.description, clientReference: widget.checkoutResponse.clientReference, hubtelPreapprovalId: widget.checkoutResponse.hubtelPreapprovalId, otpPrefix: widget.checkoutResponse.otpPrefix, customerMsisdn: widget.checkoutResponse.customerMsisdn, skipOtp: widget.checkoutResponse.skipOtp, verificationType: widget.checkoutResponse.verificationType, customerName: widget.checkoutResponse.customerName, invoiceNumber: widget.checkoutResponse.invoiceNumber, email: widget.checkoutResponse.email);
       Navigator.pop(context);
       Navigator.pop(context, checkoutPaymentStatus);
       return;
     }
 
     if (paymentStatus == PaymentStatus.failed) {
-      final checkoutPaymentStatus = CheckoutCompletionStatus(status: UnifiedCheckoutPaymentStatus.paymentFailed, transactionId: widget.checkoutResponse.transactionId ?? "");
+      final checkoutPaymentStatus = CheckoutCompletionStatus(status: UnifiedCheckoutPaymentStatus.paymentFailed, transactionId: widget.checkoutResponse.transactionId ?? "", charges: widget.checkoutResponse.charges, amount: widget.checkoutResponse.amount, amountAfterCharges: widget.checkoutResponse.amountAfterCharges, amountCharged: widget.checkoutResponse.amountCharged, deliveryFee: widget.checkoutResponse.deliveryFee, description: widget.checkoutResponse.description, clientReference: widget.checkoutResponse.clientReference, hubtelPreapprovalId: widget.checkoutResponse.hubtelPreapprovalId, otpPrefix: widget.checkoutResponse.otpPrefix, customerMsisdn: widget.checkoutResponse.customerMsisdn, skipOtp: widget.checkoutResponse.skipOtp, verificationType: widget.checkoutResponse.verificationType, customerName: widget.checkoutResponse.customerName, invoiceNumber: widget.checkoutResponse.invoiceNumber, email: widget.checkoutResponse.email);
       Navigator.pop(context);
       Navigator.pop(context, checkoutPaymentStatus);
       return;
