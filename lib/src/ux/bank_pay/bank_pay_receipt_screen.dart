@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_html_to_pdf/flutter_html_to_pdf.dart';
+// import 'package:flutter_html_to_pdf/flutter_html_to_pdf.dart';
 
 // import 'package:flutter_html_to_pdf/flutter_html_to_pdf.dart';
 import 'package:open_filex/open_filex.dart';
@@ -89,20 +89,20 @@ class _BankPayReceiptScreenState extends State<BankPayReceiptScreen> {
     final targetFileName =
         "${widget.businessDetails.businessName}_${widget.mobileMoneyResponse.customerName}_${DateTime.now()}";
 
-    final generatedPdfFile = await FlutterHtmlToPdf.convertFromHtmlContent(
-        htmlContent, targetPath ?? "", targetFileName);
-    log('$generatedPdfFile', name: '$runtimeType');
+    // final generatedPdfFile = await FlutterHtmlToPdf.convertFromHtmlContent(
+    //     htmlContent, targetPath ?? "", targetFileName);
+    // log('$generatedPdfFile', name: '$runtimeType');
 
-    final openFile = await OpenFilex.open(generatedPdfFile.path);
+    // final openFile = await OpenFilex.open(generatedPdfFile.path);
 
     if (!mounted) return;
 
     Navigator.pop(context);
 
-    if (openFile != null) {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const BankPayStatusScreen()));
-    }
+    // if (openFile != null) {
+    //   Navigator.push(context,
+    //       MaterialPageRoute(builder: (context) => const BankPayStatusScreen()));
+    // }
   }
 
 
